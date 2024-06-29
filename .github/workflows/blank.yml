@@ -52,6 +52,6 @@ jobs:
         gcloud components update
         gcloud container clusters get-credentials reference-baton-426923-t0-gke --region us-east5 --project reference-baton-426923-t0
         helm repo add harbor https://helm.goharbor.io
-        helm install my-harbor harbor/harbor --version 1.15.0
+        helm install harbor harbor/harbor --version 1.15.0
         ls
-        kubectl install my-harbor bitmani/harbor -f valumes.yaml -f dev-values.yaml -n harbor
+        kubectl install harbor bitmani/harbor -f valumes.yaml -f dev-values.yaml -n harbor
