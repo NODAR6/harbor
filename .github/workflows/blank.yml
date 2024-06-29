@@ -46,12 +46,10 @@ jobs:
          cd grafanagke
          ls -la
     - name: Deploy with Helm
-      env:
-        CLOUDSDK_PYTHON: /usr/bin/python3
-      run: |
-        gcloud components update
-        gcloud container clusters get-credentials reference-baton-426923-t0-gke --region us-east5 --project reference-baton-426923-t0
-        helm repo add harbor https://helm.goharbor.io
-        helm install harbor harbor/harbor --version 1.15.0
-        ls
-        kubectl apply harbor bitmani/harbor -f valumes.yaml -f dev-values.yaml -n harbor
+    env:
+     CLOUDSDK_PYTHON: /usr/bin/python3
+     run: |
+      gcloud components update
+      gcloud container clusters get-credentials reference-baton-426923-t0-gke --region us-east5 --project reference-baton-426923-t0
+      helm repo add harbor https://helm.goharbor.io
+      helm install harbor harbor/harbor --version 1.15.0 -f volumes.yaml -f dev-values.yaml -n harbor
