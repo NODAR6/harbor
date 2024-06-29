@@ -33,13 +33,7 @@ jobs:
       run: |
         curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 | bash
 
-    - name: Debug Helm Configuration
-      run: |
-        helm version
-        helm repo list
-        cat grafanagke/volumes.yaml  # Verify if volumes.yaml is correctly configured
-        cat grafanagke/dev-values.yaml  # Verify if dev-values.yaml is correctly configured
-
+  
     - name: Deploy with Helm
       env:
         CLOUDSDK_PYTHON: /usr/bin/python3
