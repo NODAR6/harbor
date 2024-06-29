@@ -54,4 +54,4 @@ jobs:
         helm repo add harbor https://helm.goharbor.io
         helm install harbor harbor/harbor --version 1.15.0
         ls
-        kubectl install harbor bitmani/harbor -f valumes.yaml -f dev-values.yaml -n harbor
+        kubectl apply harbor bitmani/harbor -f valumes.yaml -f dev-values.yaml -n harbor
